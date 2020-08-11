@@ -1,0 +1,11 @@
+{
+    "db": {
+        "dialect": "mariadb",
+        "host": "",
+        "username": "",
+        "password": "",
+        "database": "",
+        "enableLogging": false,
+        "charset": ""
+    }
+}
