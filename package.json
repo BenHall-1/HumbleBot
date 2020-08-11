@@ -14,11 +14,14 @@
   "dependencies": {
     "discord.js": "^12.2.0",
     "dotenv": "^8.2.0",
+    "mariadb": "^2.4.2",
+    "sequelize": "^6.3.4",
     "uuid": "^8.3.0"
   },
   "devDependencies": {
     "eslint": "^7.6.0",
     "eslint-config-airbnb-base": "^14.2.0",
-    "eslint-plugin-import": "^2.22.0"
+    "eslint-plugin-import": "^2.22.0",
+    "sequelize-cli": "^6.2.0"
   }
 }
