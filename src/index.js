@@ -36,6 +36,12 @@ registerCommands('src/commands');
 //   ], '#0069ff'));
 // });
 
+const dbConnection = require('./db/database');
+
+dbConnection.authenticate()
+  .then(() => console.log('Connection has been established to the database'))
+  .catch((err) => console.error('Unable to connect to the database', err));
+
 client
   .login(DISCORD_TOKEN)
   .then(() => {
