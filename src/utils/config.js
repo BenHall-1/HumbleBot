@@ -1,4 +1,4 @@
-const config = require('../../config.json');
+const config = require('../../config/config.json');
 
 module.exports = {
   BOT_ADMINS: config.serverProperties.botAdmins,
