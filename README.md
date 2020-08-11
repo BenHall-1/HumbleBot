@@ -1,7 +1,7 @@
 <h1 align="center">
   <br />
-  <a href="https://billing.humbleservers.com/aff.php?aff=40">
-    <img src="https://humbleservers.com/assets/images/xs-footer-logo.png">
+  <a href="https://billing.humbleservers.com/aff.php?aff=40" style="text-decoration: none; color: blue;">
+    Humble Servers
   </a>
   <br />
   HumbleBot
