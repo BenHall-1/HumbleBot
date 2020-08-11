@@ -1,0 +1,12 @@
+{
+    "botSettings": {
+        "token": "",
+        "prefix": "-",
+        "botLogo": ""
+    },
+    "serverProperties": {
+        "botAdmins": [""],
+        "supportRole": "",
+        "ticketCategory": ""
+    }
+}
