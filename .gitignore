@@ -114,4 +114,5 @@ dist
 # End of https://www.toptal.com/developers/gitignore/api/node
 
 # Added ignoring for config.json
-config.json
+config/config.json
+config/database.json
