@@ -6,6 +6,7 @@
     },
     "serverProperties": {
         "botAdmins": [""],
+        "clientRole": "",
         "supportRole": "",
         "ticketCategory": ""
     }
