@@ -2,7 +2,7 @@ const { MessageEmbed } = require('discord.js');
 const { BOT_LOGO } = require('./config');
 
 module.exports = {
-  generate: (description, imageUrl = null, fields = null, color = null) => {
+  generate: (description, imageUrl = null, fields = null, color = '#0069ff') => {
     const embed = new MessageEmbed({
       description,
       image: imageUrl,
@@ -10,7 +10,6 @@ module.exports = {
       fields,
     });
     embed.setColor(color);
-    console.log(color);
     return embed;
   },
 };
