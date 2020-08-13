@@ -3,7 +3,9 @@ const AccessLevel = require('../../enums/AccessLevel');
 const EmbedGenerator = require('../../utils/EmbedGenerator');
 
 module.exports = {
-  handle: (client, message) => {
+  handle: async (client, message) => {
+    await require('../memberUpdate').handle(client, message);
+
     if (message.author.bot) return;
 
     if (!message.content.startsWith(PREFIX)) return;
