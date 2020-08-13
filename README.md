@@ -1,6 +1,6 @@
 <h1 align="center">
   <br />
-  <a href="https://billing.humbleservers.com/aff.php?aff=40" style="text-decoration: none; color: blue;">
+  <a href="https://billing.humbleservers.com/aff.php?aff=40" style="text-decoration: none;">
     Humble Servers
   </a>
   <br />
