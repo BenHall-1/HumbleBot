@@ -27,15 +27,6 @@ client.on('message', (message) => require('./events/base/message').handle(client
 
 registerCommands('src/commands');
 
-// client.on('message', (msg) => {
-//   if (msg.author.id === client.user.id) return;
-//   msg.channel.send(EmbedGenerator.generate('Test Embed', null, [
-//     { name: 'Test1', value: 'xd', inline: true },
-//     { name: 'Test2', value: 'xd', inline: true },
-//     { name: 'Test3', value: 'xd', inline: false },
-//   ], '#0069ff'));
-// });
-
 const dbConnection = require('./db/database');
 
 dbConnection.authenticate()
