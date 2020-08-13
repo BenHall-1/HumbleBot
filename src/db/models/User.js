@@ -1,36 +1,26 @@
-const {
-  Model,
-} = require('sequelize');
+const Sequelize = require('sequelize');
+const database = require('../database');
 
-module.exports = (sequelize, DataTypes) => {
-  class User extends Model {
-    /**
-     * Helper method for defining associations.
-     * This method is not a part of Sequelize lifecycle.
-     * The `models/index` file will call this method automatically.
-     */
-    // eslint-disable-next-line no-unused-vars
-    static associate(models) {
-      // define association here
-    }
-  }
-  User.init({
-    id: {
-      type: DataTypes.BIGINT,
-      primaryKey: true,
-      allowNull: false,
-    },
-    username: {
-      type: DataTypes.STRING,
-      allowNull: false,
-    },
-    discriminator: {
-      type: DataTypes.INTEGER,
-      allowNull: false,
-    },
-  }, {
-    sequelize,
-    modelName: 'User',
-  });
-  return User;
-};
+module.exports = database.define('Users', {
+  id: {
+    type: Sequelize.BIGINT,
+    primaryKey: true,
+    allowNull: false,
+  },
+  username: {
+    type: Sequelize.STRING,
+    allowNull: false,
+  },
+  discriminator: {
+    type: Sequelize.INTEGER,
+    allowNull: false,
+  },
+  billingEmail: {
+    type: Sequelize.STRING,
+    allowNull: true,
+  },
+  pterodactylApiKey: {
+    type: Sequelize.STRING,
+    allowNull: true,
+  },
+});

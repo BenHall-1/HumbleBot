@@ -14,6 +14,14 @@ module.exports = {
         type: Sequelize.INTEGER,
         allowNull: false,
       },
+      billingEmail: {
+        type: Sequelize.STRING,
+        allowNull: true,
+      },
+      pterodactylApiKey: {
+        type: Sequelize.STRING,
+        allowNull: true,
+      },
     });
   },
   // eslint-disable-next-line no-unused-vars
