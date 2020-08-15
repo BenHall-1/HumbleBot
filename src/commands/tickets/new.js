@@ -6,7 +6,7 @@ const Ticket = require('../../db/models/Ticket');
 const User = require('../../db/models/User');
 
 const EmbedGenerator = require('../../utils/EmbedGenerator');
-const { TICKET_CATEGORY } = require('../../utils/config');
+const { SUPPORT_ROLE, TICKET_CATEGORY } = require('../../utils/config');
 
 module.exports = {
   command: 'new',
@@ -23,6 +23,7 @@ module.exports = {
       permissionOverwrites: [
         { id: message.guild.roles.everyone.id, deny: ['VIEW_CHANNEL'] },
         { id: message.author.id, allow: ['VIEW_CHANNEL'] },
+        { id: SUPPORT_ROLE, allow: ['VIEW_CHANNEL'] },
       ],
     }).then(async (ticketChannel) => {
       channelCreatingMessage.edit(EmbedGenerator.generate(`Your ticket has been created ${ticketChannel}`));
