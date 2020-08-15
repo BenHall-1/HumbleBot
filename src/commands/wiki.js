@@ -6,6 +6,7 @@ const WikiResponse = require('../db/models/WikiResponse');
 module.exports = {
   command: 'wiki',
   accessLevel: AccessLevel.EVERYONE,
+  description: 'Shows iwki responses',
   execute: async (message, args) => {
     if (args && args[0]) {
       switch (args[0]) {
@@ -23,12 +24,14 @@ module.exports = {
           if (wikiExists === null) {
             args.shift();
             args.shift();
-            const response = args.join(' ');
-            WikiResponse.create({
-              trigger,
-              response,
-            });
-            message.channel.send(EmbedGenerator.generate(`A new wiki response has been added, you can use this by running \`-wiki ${trigger}\``));
+            if (args.length !== 0) {
+              const response = args.join(' ');
+              WikiResponse.create({
+                trigger,
+                response,
+              });
+              message.channel.send(EmbedGenerator.generate(`A new wiki response has been added, you can use this by running \`-wiki ${trigger}\``));
+            }
           } else {
             message.channel.send(EmbedGenerator.generate('Trigger already exists'));
           }

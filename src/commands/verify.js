@@ -10,6 +10,7 @@ const User = require('../db/models/User');
 module.exports = {
   command: 'verify',
   accessLevel: AccessLevel.EVERYONE,
+  description: 'Verifies a user with a Pterodactyl API Key & Email Address',
   execute: async (message) => {
     await message.author.createDM()
       .then(async (dmChannel) => {

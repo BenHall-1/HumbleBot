@@ -13,6 +13,7 @@ function format(value) {
 module.exports = {
   command: 'serverinfo',
   accessLevel: AccessLevel.CLIENT,
+  description: 'Displays information about the given server',
   execute: async (message, args) => {
     if (args && args[0]) {
       const user = await User.findOne({ where: { id: message.author.id } });

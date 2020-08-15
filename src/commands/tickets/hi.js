@@ -5,6 +5,7 @@ const Ticket = require('../../db/models/Ticket');
 module.exports = {
   command: 'hi',
   accessLevel: AccessLevel.SUPPORT,
+  description: 'Sends the introduction message',
   execute: async (message) => {
     const channel = await Ticket.findOne({ where: { id: message.channel.id } });
 

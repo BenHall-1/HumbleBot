@@ -12,6 +12,7 @@ const { SUPPORT_ROLE, TICKET_CATEGORY } = require('../../utils/config');
 module.exports = {
   command: 'new',
   accessLevel: AccessLevel.EVERYONE,
+  description: 'Creates a new ticket',
   execute: async (message) => {
     const channelCreatingMessage = await message.channel.send(EmbedGenerator.generate('Your ticket is being created...'));
 
