@@ -4,6 +4,9 @@
         "prefix": "-",
         "botLogo": ""
     },
+    "pterodactylSettings": {
+        "apiUrl": ""
+    },
     "serverProperties": {
         "botAdmins": [""],
         "clientRole": "",

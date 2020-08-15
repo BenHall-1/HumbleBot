@@ -8,4 +8,5 @@ module.exports = {
   PREFIX: config.botSettings.prefix,
   SUPPORT_ROLE: config.serverProperties.supportRole,
   TICKET_CATEGORY: config.serverProperties.ticketCategory,
+  PTERODACTYL_API_URL: config.pterodactylSettings.apiUrl,
 };
