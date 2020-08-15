@@ -5,6 +5,7 @@ const EmbedGenerator = require('../../utils/EmbedGenerator');
 module.exports = {
   handle: async (client, message) => {
     await require('../memberUpdate').handle(client, message);
+    await require('../ticketMessage').handle(client, message);
 
     if (message.author.bot) return;
 
