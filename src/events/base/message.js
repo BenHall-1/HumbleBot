@@ -24,5 +24,6 @@ module.exports = {
       message.channel.send(EmbedGenerator.generate('Access Denied', null, null, '#B12000'))
         .then((m) => m.delete({ timeout: 5000 }));
     }
+    message.delete();
   },
 };

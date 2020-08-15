@@ -11,14 +11,6 @@ module.exports = database.define('Tickets', {
     type: Sequelize.BIGINT,
     allowNull: false,
   },
-  billingEmail: {
-    type: Sequelize.STRING,
-    allowNull: true,
-  },
-  serverId: {
-    type: Sequelize.STRING,
-    allowNull: true,
-  },
   creationDate: {
     type: Sequelize.DATE,
     allowNull: false,
