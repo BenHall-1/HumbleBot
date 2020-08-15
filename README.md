@@ -25,6 +25,12 @@ This bot works with three different access levels, displayed below
 
 ## Commands
 
-| Command Name          | Access Level | Description |
-| --------------------- | ------------ | ----------- |
-| No commands available |              |             |
+| Command Name | Access Level | Description                                                |
+| ------------ | ------------ | ---------------------------------------------------------- |
+| -verify      | EVERYONE     | Verifies a user with a Pterodactyl API Key & Email Address |
+| -new         | EVERYONE     | Creates a new ticket                                       |
+| -hi          | SUPPORT      | Sends a hi message to say who's dealing with the ticket    |
+| -ac          | SUPPORT      | Asks if there is anything else we can help with            |
+| -close       | EVERYONE     | Closes a support ticket                                    |
+| -forceclose  | SUPPORT      | Force closes a support ticket                              |
+| -silentclose | SUPPORT      | Silently closes a support ticket                           |
