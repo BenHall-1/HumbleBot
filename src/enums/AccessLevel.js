@@ -10,11 +10,11 @@ module.exports = {
       case 0:
         return true;
       case 1:
-        return member.roles.cache.find((role) => role.id === CLIENT_ROLE) !== null
-        || member.roles.cache.find((role) => role.id === SUPPORT_ROLE) !== null
+        return member.roles.cache.find((role) => role.id === CLIENT_ROLE) !== undefined
+        || member.roles.cache.find((role) => role.id === SUPPORT_ROLE) !== undefined
         || BOT_ADMINS.includes(member.id);
       case 2:
-        return member.roles.cache.find((role) => role.id === SUPPORT_ROLE) !== null
+        return member.roles.cache.find((role) => role.id === SUPPORT_ROLE) !== undefined
         || BOT_ADMINS.includes(member.id);
       case 3:
         return BOT_ADMINS.includes(member.id);

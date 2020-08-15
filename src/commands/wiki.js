@@ -6,7 +6,7 @@ const WikiResponse = require('../db/models/WikiResponse');
 module.exports = {
   command: 'wiki',
   accessLevel: AccessLevel.EVERYONE,
-  description: 'Shows iwki responses',
+  description: 'Shows wiki responses',
   execute: async (message, args) => {
     if (args && args[0]) {
       switch (args[0]) {
