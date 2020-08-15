@@ -8,6 +8,8 @@ module.exports = {
     const channel = await Ticket.findOne({ where: { id: message.channel.id } });
 
     if (channel) {
+      channel.resolvedDate = Date.now();
+      await channel.save();
       message.channel.delete();
     }
   },

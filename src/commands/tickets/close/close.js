@@ -26,6 +26,8 @@ module.exports = {
           switch (reactions.first()) {
             case '✅':
               message.channel.send(EmbedGenerator.generate('Ticket closure confirmed. This channel will be deleted in 30 seconds'));
+              channel.resolvedDate = Date.now();
+              await channel.save();
               setTimeout(() => message.channel.delete(), 30000);
               break;
             case '❌':

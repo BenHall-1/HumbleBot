@@ -10,6 +10,8 @@ module.exports = {
 
     if (channel) {
       message.channel.send(EmbedGenerator.generate(`This ticket has been force closed by ${message.author} and will be closed in 10 seconds`));
+      channel.resolvedDate = Date.now();
+      await channel.save();
       setTimeout(() => message.channel.delete(), 10000);
     }
   },
