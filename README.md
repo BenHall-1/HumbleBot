@@ -34,3 +34,5 @@ This bot works with three different access levels, displayed below
 | -close       | EVERYONE     | Closes a support ticket                                    |
 | -forceclose  | SUPPORT      | Force closes a support ticket                              |
 | -silentclose | SUPPORT      | Silently closes a support ticket                           |
+| -serverinfo  | EVERYONE     | Displays information about the given server                |
+| -wiki        | EVERYONE     | Shows wiki responses                                       |
