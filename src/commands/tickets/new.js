@@ -3,6 +3,7 @@ const axios = require('axios').default;
 const AccessLevel = require('../../enums/AccessLevel');
 
 const Ticket = require('../../db/models/Ticket');
+const TicketMessage = require('../../db/models/TicketMessage');
 const User = require('../../db/models/User');
 
 const EmbedGenerator = require('../../utils/EmbedGenerator');
@@ -53,11 +54,25 @@ module.exports = {
 
       ticketChannel.send(EmbedGenerator.generate(introMessage, null, fields));
       ticketChannel.send(`${message.author}`).then((m) => m.delete());
-      await Ticket.create({
+      const ticket = await Ticket.create({
         id: ticketChannel.id,
         creator: message.author.id,
         creationDate: Date.now(),
       });
+      setTimeout(async () => {
+        const responses = await TicketMessage.count({
+          where: {
+            author: message.author.id,
+            ticket: ticketChannel.id,
+          },
+        });
+
+        if (responses === 0) {
+          ticket.resolvedDate = Date.now();
+          await ticket.save();
+          ticketChannel.delete();
+        }
+      }, 30 * 60 * 1000);
     });
   },
 };

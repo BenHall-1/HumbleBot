@@ -8,6 +8,7 @@ module.exports = {
     if (ticket) {
       await TicketMessage.create({
         id: message.id,
+        ticket: message.channel.id,
         author: message.author.id,
         content: message.embeds.length > 0 ? message.embeds[0].description : message.content,
         timestamp: Date.now(),

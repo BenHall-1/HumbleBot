@@ -6,6 +6,10 @@ module.exports = {
         primaryKey: true,
         type: Sequelize.BIGINT,
       },
+      ticket: {
+        type: Sequelize.BIGINT,
+        allowNull: false,
+      },
       author: {
         type: Sequelize.BIGINT,
         allowNull: false,
