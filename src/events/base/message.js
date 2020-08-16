@@ -11,6 +11,8 @@ module.exports = {
 
     if (!message.content.startsWith(PREFIX)) return;
 
+    if (message.channel.type !== 'text') return;
+
     const args = message.content.slice(PREFIX.length).split(/ +/);
 
     const commandName = args.shift().toLowerCase();
