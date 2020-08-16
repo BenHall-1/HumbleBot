@@ -22,6 +22,10 @@ module.exports = {
         type: Sequelize.STRING,
         allowNull: true,
       },
+      receivedTrustPilotLink: {
+        type: Sequelize.BOOLEAN,
+        default: false,
+      },
     });
   },
   // eslint-disable-next-line no-unused-vars

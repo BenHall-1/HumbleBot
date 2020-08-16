@@ -1,6 +1,7 @@
 const AccessLevel = require('../../../enums/AccessLevel');
 const EmbedGenerator = require('../../../utils/EmbedGenerator');
 const Ticket = require('../../../db/models/Ticket');
+const User = require('../../../db/models/User');
 
 module.exports = {
   command: 'close',
@@ -24,18 +25,35 @@ module.exports = {
 
       await closeMessage.awaitReactions(filter, options)
         .then(async (reactions) => {
-          switch (reactions.first()) {
-            case '✅':
-              message.channel.send(EmbedGenerator.generate('Ticket closure confirmed. This channel will be deleted in 30 seconds'));
-              channel.resolvedDate = Date.now();
-              await channel.save();
-              setTimeout(() => message.channel.delete(), 30000);
+          console.log(reactions.first());
+          switch (reactions.first().emoji.name) {
+            case '✅': {
+              message.channel.send(EmbedGenerator.generate('Ticket closure confirmed, This channel will be deleted in 30 seconds'));
+              setTimeout(async () => {
+                const user = await User.findOne({ where: { id: channel.creator } });
+                if (user.receivedTrustPilotLink !== true) {
+                  const discordMember = await message.guild.members.cache.get(user.id.toString());
+                  await discordMember.createDM().then(async (pmChannel) => {
+                    await pmChannel.send(EmbedGenerator.generate(
+                      'Hi There! I noticed that our Support Team recently helped you out in a ticket. \n\nIf you feel like it, we\'d love for you to review us on TrustPilot by going to https://www.trustpilot.com/review/www.humbleservers.com',
+                      'https://share.trustpilot.com/images/company-rating?locale=en-US&businessUnitId=5b2e9a9cd34c990001a89301',
+                    ));
+                    user.receivedTrustPilotLink = true;
+                    await user.save();
+                  });
+                }
+                channel.resolvedDate = Date.now();
+                await channel.save();
+                message.channel.delete();
+              }, 30000);
               break;
+            }
             case '❌':
               closeMessage.delete();
               break;
             default:
               closeMessage.delete();
+              break;
           }
         })
         .catch(() => closeMessage.delete());

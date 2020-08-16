@@ -23,4 +23,8 @@ module.exports = database.define('Users', {
     type: Sequelize.STRING,
     allowNull: true,
   },
+  receivedTrustPilotLink: {
+    type: Sequelize.BOOLEAN,
+    default: false,
+  },
 });
